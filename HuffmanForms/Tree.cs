@@ -15,9 +15,13 @@ namespace HuffmanForms
         public Tree()
         {
         }
-
+        /// <summary>
+        /// Puun rakennus
+        /// </summary>
+        /// <param name="input">teksti, josta puu rakennetaan</param>
         public void Build(string input)
         {
+            // Haetaan merkit ja lasketaan niiden määrä
             foreach (char item in input)
             {
                 if (!letters.ContainsKey(item))
@@ -26,21 +30,24 @@ namespace HuffmanForms
                 }
                 letters[item]++;
             }
-
+            // Luodaan nodet lasketuista merkeistä
             foreach (KeyValuePair<char, int> item in letters)
             {
                 Node node = new Node(item.Key, item.Value);
                 nodes.Add(node);
             }
-
+            // Rakennetaan puu
             while (nodes.Count > 1)
             {
+                // Järjestetään lista
                 List<Node> nodesInOrder = nodes.OrderBy(node => node.Frequency).ToList<Node>();
 
                 if (nodesInOrder.Count > 1)
                 {
+                    // Otetaan 2 "pienintä" ja yhdistetään ne
                     List<Node> combine = nodesInOrder.Take(2).ToList<Node>();
                     Node parent = new Node(combine[1], combine[0]);
+                    // poistetaan alkuperäiset nodet puusta ja lisätään yhdistetty node
                     nodes.Remove(combine[0]);
                     nodes.Remove(combine[1]);
                     nodes.Add(parent);
@@ -48,10 +55,15 @@ namespace HuffmanForms
                 Root = nodes.FirstOrDefault();
             }
         }
-
+        /// <summary>
+        /// Pakkausmetodi
+        /// </summary>
+        /// <param name="input">alkuperäinen teksti, jonka mukaan reitti rakennetaan</param>
+        /// <returns></returns>
         public List<string> CreatePath(string input)
         {
             List<string> path = new List<string>();
+            // Rakennetaan inputin mukaan jokaiselle merkille reitti
             foreach (char item in input)
             {
                 string help = "";
@@ -60,10 +72,16 @@ namespace HuffmanForms
             return path;
         }
 
+        /// <summary>
+        /// Purkumetodi
+        /// </summary>
+        /// <param name="path">Rakennettu reitti</param>
+        /// <returns></returns>
         public string FollowPath(List<string> path)
         {
             Node node = Root;
             string decoded = "";
+            // käydään listaa läpi "bitti" kerrallaan ja etsitään oikea merkki
             foreach (string item in path)
             {
                 foreach (char bit in item)
@@ -71,16 +89,12 @@ namespace HuffmanForms
                     if (bit == '1')
                     {
                         if (node.Right != null)
-                        {
-                            node = node.Right;
-                        }
+                            node = node.Right;  
                     }
                     else
                     {
                         if (node.Left != null)
-                        {
-                            node = node.Left;
-                        }
+                            node = node.Left;                      
                     }
                     if (!node.Parent)
                     {
