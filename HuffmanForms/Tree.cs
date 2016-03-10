@@ -99,7 +99,7 @@ namespace HuffmanForms
         public string FollowPath(List<string> path)
         {
             Node node = Root;
-            string decoded = "";
+            string followed = "";
             // käydään listaa läpi "bitti" kerrallaan ja etsitään oikea merkki
             foreach (string item in path)
             {
@@ -117,12 +117,12 @@ namespace HuffmanForms
                     }
                     if (!node.Parent)
                     {
-                        decoded += node.Letter;
+                        followed += node.Letter;
                         node = Root;
                     }
                 }
             }
-            return decoded;
+            return followed;
         }
     }
 }

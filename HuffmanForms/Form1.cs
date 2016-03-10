@@ -20,8 +20,10 @@ namespace HuffmanForms
         string input = "";
         private void btnPakkaa_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
             input = tbInput.Text;
-            labelInput.Text = input;
+            labelInput.Text = "Input: " + input;
             huffman = new Tree();
             huffman.Build(input);
             List<string> paths = huffman.CreatePath(input);
@@ -49,7 +51,7 @@ namespace HuffmanForms
                 paths.Add(item);
             }
             string followed = huffman.FollowPath(paths);
-            tbOutput.Text = followed;
+            tbInput.Text = followed;
         }
 
         private void btnTyhjää_Click(object sender, EventArgs e)
@@ -57,7 +59,6 @@ namespace HuffmanForms
             listBox1.Items.Clear();
             listBox2.Items.Clear();
             tbInput.Text = "";
-            tbOutput.Text = "";
             huffman = new Tree();
             input = "";
             labelInput.Text = "Input";
