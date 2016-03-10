@@ -29,8 +29,16 @@ namespace HuffmanForms
             {
                 listBox1.Items.Add(item);
             }
+            Dictionary<char, int> letters = huffman.GetLetters();
+            foreach (KeyValuePair<char, int> item in letters)
+            {
+                string bits = huffman.FindLetter(item.Key);
+                string letter = item.Key + ", " + item.Value.ToString() + " kpl : " + bits;
+                listBox2.Items.Add(letter);
+            }
             tbInput.Text = "";
             input = "";
+
         }
 
         private void btnPura_Click(object sender, EventArgs e)
@@ -47,6 +55,7 @@ namespace HuffmanForms
         private void btnTyhjää_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
+            listBox2.Items.Clear();
             tbInput.Text = "";
             tbOutput.Text = "";
             huffman = new Tree();

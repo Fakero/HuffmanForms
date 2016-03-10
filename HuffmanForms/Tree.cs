@@ -16,6 +16,14 @@ namespace HuffmanForms
         {
         }
         /// <summary>
+        /// Palauttaa annetut merkit ja niiden määrän
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<char, int> GetLetters()
+        {
+            return letters;
+        }
+        /// <summary>
         /// Puun rakennus
         /// </summary>
         /// <param name="input">teksti, josta puu rakennetaan</param>
@@ -71,7 +79,18 @@ namespace HuffmanForms
             }
             return path;
         }
-
+        /// <summary>
+        /// Etsii tietyn merkin osoitteen ja palauttaa sen stringinä
+        /// </summary>
+        /// <param name="letter">Etsittävä merkki</param>
+        /// <returns></returns>
+        public string FindLetter(char letter)
+        {
+            Node node = Root;
+            string help = "";
+            string found = node.Path(letter, help);
+            return found;
+        }
         /// <summary>
         /// Purkumetodi
         /// </summary>

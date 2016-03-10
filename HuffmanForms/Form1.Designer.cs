@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnTyhjää = new System.Windows.Forms.Button();
             this.labelInput = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // tbInput
@@ -80,7 +81,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 110);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(184, 186);
+            this.listBox1.Size = new System.Drawing.Size(234, 186);
             this.listBox1.TabIndex = 4;
             this.listBox1.TabStop = false;
             // 
@@ -103,7 +104,7 @@
             // 
             // btnTyhjää
             // 
-            this.btnTyhjää.Location = new System.Drawing.Point(224, 273);
+            this.btnTyhjää.Location = new System.Drawing.Point(371, 72);
             this.btnTyhjää.Name = "btnTyhjää";
             this.btnTyhjää.Size = new System.Drawing.Size(127, 23);
             this.btnTyhjää.TabIndex = 3;
@@ -114,17 +115,26 @@
             // labelInput
             // 
             this.labelInput.AutoSize = true;
-            this.labelInput.Location = new System.Drawing.Point(221, 110);
+            this.labelInput.Location = new System.Drawing.Point(368, 29);
             this.labelInput.Name = "labelInput";
             this.labelInput.Size = new System.Drawing.Size(31, 13);
             this.labelInput.TabIndex = 5;
             this.labelInput.Text = "Input";
             // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(270, 110);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(228, 186);
+            this.listBox2.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 308);
+            this.ClientSize = new System.Drawing.Size(516, 306);
+            this.Controls.Add(this.listBox2);
             this.Controls.Add(this.labelInput);
             this.Controls.Add(this.btnTyhjää);
             this.Controls.Add(this.listBox1);
@@ -152,6 +162,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnTyhjää;
         private System.Windows.Forms.Label labelInput;
+        private System.Windows.Forms.ListBox listBox2;
     }
 }
 
